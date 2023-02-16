@@ -48,9 +48,6 @@ public class UserController {
     public void deleteUserById(Integer id) {
         userService.deleteUserById(id);
     }*/
-    public static void main(String[] args) {
-
-    }
 
 
 }
