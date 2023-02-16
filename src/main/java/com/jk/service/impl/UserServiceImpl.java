@@ -1,6 +1,6 @@
 package com.jk.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.jk.api.Result;
 import com.jk.dao.UserDao;
 import com.jk.entity.UserEntity;
 import com.jk.service.UserService;
@@ -9,14 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @BelongsProject: springboot-user
- * @BelongsPackage: com.jk.service.impl
- * @Author: 杨帅
- * @CreateTime: 2022-10-24  17:06
- * @Description: TODO
- * @Version: 1.0
- */
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -24,6 +17,22 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
+    public List<UserEntity> selectUserList() {
+        return userDao.selectUserList();
+    }
+
+    @Override
+    public UserEntity queryUserById(Integer id) {
+        return userDao.queryUserById(id);
+    }
+
+    @Override
+    public boolean updateUser(UserEntity user) {
+
+        return userDao.updateUser(user);
+    }
+
+   /* @Override
     public List<UserEntity> getUserList(UserEntity user) {
         QueryWrapper<UserEntity> wrapper = new QueryWrapper<>();
         List<UserEntity> list = userDao.selectList(wrapper);
@@ -48,7 +57,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity getUserById(Integer id) {
         return userDao.selectById(id);
-    }
+    }*/
 }
 
 
